@@ -87,19 +87,21 @@ git log --oneline
 
 ## Статусы файлов и жизненный цикл в Git
 
+```bash
+# Просмотр состояния (статус) файлов
+git status
+```
 Основные статусы файлов:
 - untracked — файл не отслеживается Git
 - tracked — файл отслеживается
 - modified — файл изменён
 - staged — изменения добавлены в индекс и готовы к коммиту
 
-Жизненный цикл файла:
-untracked + git add → staged
-staged + git commit → tracked (clean)
-tracked + изменение → modified
-modified + git add → staged
+graph LR;
+  %% Жизненный цикл файлов в Git
+  untracked -- "git add" --> staged;
+  staged -- "git commit" --> tracked;
+  tracked -- "изменение файла" --> modified;
+  modified -- "git add" --> staged;
 
-```bash
-# Просмотр состояния (статус) файлов
-git status
-```
+
