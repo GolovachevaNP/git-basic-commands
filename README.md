@@ -97,11 +97,13 @@ git status
 - modified — файл изменён
 - staged — изменения добавлены в индекс и готовы к коммиту
 
+```mermaid
+%% Жизненный цикл файлов в Git
 graph LR;
-  %% Жизненный цикл файлов в Git
   untracked -- "git add" --> staged;
   staged -- "git commit" --> tracked;
   tracked -- "изменение файла" --> modified;
   modified -- "git add" --> staged;
+
 
 
